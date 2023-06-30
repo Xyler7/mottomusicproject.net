@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motto Music Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Motto Music Project</h1>
+    <img src="logo.png" alt="Motto Music Project" class="logo">
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Ana Sayfa</a></li>
+      <li><a href="hakkimizda.html">Hakkında</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="left-column">
+          <!-- Sol tarafta yer alan "Biz Kimiz?" yazısı -->
+          <h2 style="color: white;">Biz Kimiz?</h2>
+          <p style="color: white;">Motto Music Project: Canlı Müziğin Sesi!</p>
+          <p style="color: white;"> Keyifli anlarınıza eşlik etmek, unutulmaz deneyimler yaşatmak için buradayız! Motto Music Project olarak, Antalya ve çevre ilçelerinde otellere canlı müzik hizmeti sunan bir şirketiz. Kaliteli müziği, profesyonel ekiplerimizle birleştirerek siz değerli müşterilerimize benzersiz bir deneyim sunuyoruz.
+      
+            Seyahat etmek, tatil yapmak veya özel bir etkinlik düzenlemek her zaman unutulmaz anılar yaratma fırsatı sunar. Biz, bu anıları daha da özel hale getirmek için müzikle buluşuyoruz. Motto Music Project olarak amacımız, misafirlerimize unutulmaz bir atmosfer sunmak, onları müziğin büyüsüyle sarmalamak ve keyif dolu anlar yaşatmaktır.
+            
+            Deneyimli müzisyenlerimiz, geniş müzik repertuarlarıyla her türden müzik zevkine hitap etmektedir. Siz isteyin, biz çalalım! Sıcak Latin ritimlerinden hareketli pop şarkılarına, romantik baladlardan caz standartlarına kadar geniş bir yelpazede seçenek sunuyoruz. Hem yerel hem de uluslararası müziklerin zenginliklerini harmanlayarak, dinleyicilerimize müzikal bir yolculuk yaşatıyoruz.
+            
+            Güçlü iş ahlakımız ve müşteri memnuniyetine olan bağlılığımızla, otellerimize en üst düzeyde hizmet sunmayı hedefliyoruz. Uzman ekibimiz, her aşamada profesyonellikten ödün vermeden, müziğinizi en iyi şekilde sunmak için çalışmaktadır. Müşterilerimizin isteklerini ve beklentilerini anlamak, en uygun müzikal çözümleri sunmak için önceliğimizdir.
+            
+            Motto Music Project, müziği bir yaşam tarzı olarak benimseyen, enerjik ve tutkulu bir ekiple çalışır. Müşterilerimizin mutluluğu ve memnuniyeti için her detayı özenle düşünerek, müziğin gücünü kullanarak eşsiz bir atmosfer yaratırız. Sizlerin unutulmaz anılarınıza renk katmak, etkinliklerinizi müzikal bir şölene dönüştürmek için buradayız.
+            
+            Eğer siz de unutulmaz bir deneyim yaşamak, müziğin büyüsünü hissetmek ve keyif dolu anlara tanıklık etmek istiyorsanız, Motto Music Project olarak sizleri bekliyoruz. Bizimle iletişime geçin ve müzikal yolculuğunuza adım atın!</p>
+        </div>
+        <div class="right-column">
+          <!-- Sağ tarafta yer alan resim galerisi -->
+          <div class="image-gallery">
+            <img src="resim1.jpg" alt="Resim 1" onclick="nextImage()">
+            <div class="nav-buttons">
+              <button onclick="previousImage()">&lt;</button>
+              <button onclick="nextImage()">&gt;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        // JavaScript kodları buraya eklenebilir
+        const images = ['resim1.jpg', 'resim2.jpg', 'resim3.jpg']; // Resimlerin listesi
+        let currentImageIndex = 0; // Şu anki görüntülenen resim index'i
+        let timerId; // Otomatik geçiş zamanlayıcısı
+    
+        function showImage(index) {
+          const image = document.querySelector('.image-gallery img');
+          image.style.transform = index > currentImageIndex ? 'translateX(-100%)' : 'translateX(100%)';
+          setTimeout(() => {
+            image.src = images[index];
+            image.style.transform = 'translateX(0)';
+          }, 500);
+          currentImageIndex = index;
+        }
+    
+        function nextImage() {
+          const nextIndex = (currentImageIndex + 1) % images.length;
+          showImage(nextIndex);
+        }
+    
+        function previousImage() {
+          const previousIndex = (currentImageIndex - 1 + images.length) % images.length;
+          showImage(previousIndex);
+        }
+    
+        function startSlideshow() {
+          timerId = setInterval(nextImage, 10000); // 10 saniyede bir otomatik geçiş
+        }
+    
+        function stopSlideshow() {
+          clearInterval(timerId);
+        }
+    
+        // Sayfa yüklendiğinde otomatik geçişi başlat
+        document.addEventListener('DOMContentLoaded', startSlideshow);
+      </script>
+
+    <footer >
+      <p>Telif Hakkı &copy; 2023 Motto Music Project</p>
+    </footer>
+  </body>
+  </html>
+</body>
+</html>
